@@ -1,0 +1,16 @@
+org: joaopaulofilho
+app: feather-serverless
+service: feather-serverless
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: eu-east-1
+
+functions:
+  app:
+    handler: handler.messages
+    events:
+      - http: POST messages
+      - http: 'ANY {proxy+}'
